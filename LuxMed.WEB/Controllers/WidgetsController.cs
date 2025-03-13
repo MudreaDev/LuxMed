@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace LuxMed.WEB.Controllers
 {
-    public class HomeController : Controller
+    public class WidgetsController : Controller
     {
-        // GET: Home
-        public ActionResult Home()
+        // GET: widgets
+        public ActionResult Widgets()
         {
             return View();
         }

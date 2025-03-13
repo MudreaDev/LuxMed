@@ -1,0 +1,5 @@
+﻿Build started at 14:23...
+1>------ Build started: Project: LuxMed.WEB, Configuration: Debug Any CPU ------
+1>  LuxMed.WEB -> C:\Users\Tzoro\Source\Repos\LuxMed\LuxMed.WEB\bin\LuxMed.WEB.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Build completed at 14:23 and took 01,788 seconds ==========
