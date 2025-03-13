@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -148,7 +149,8 @@
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\SignIn\Index.cshtml" />
     <Content Include="Views\Widgets\Widgets.cshtml" />
-    <Content Include="Views\Shared\_Nou.cshtml" />
+    <Content Include="Views\Shared\_SignInSIgnUp.cshtml" />
+    <Content Include="Views\SignUp\SignUp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -159,7 +161,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Signup\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
