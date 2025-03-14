@@ -127,9 +127,15 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ButtonsController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
+    <Compile Include="Controllers\FormsController.cs" />
+    <Compile Include="Controllers\OtherElementsController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="Controllers\TableController.cs" />
+    <Compile Include="Controllers\TypographyController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -151,6 +157,12 @@
     <Content Include="Views\Widgets\Widgets.cshtml" />
     <Content Include="Views\Shared\_SignInSIgnUp.cshtml" />
     <Content Include="Views\SignUp\SignUp.cshtml" />
+    <Content Include="Views\Forms\Forms.cshtml" />
+    <Content Include="Views\Buttons\Buttons.cshtml" />
+    <Content Include="Views\Typography\Typography.cshtml" />
+    <Content Include="Views\OtherElements\OtherElements.cshtml" />
+    <Content Include="Views\Table\Table.cshtml" />
+    <Content Include="Views\Chart\Chart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
