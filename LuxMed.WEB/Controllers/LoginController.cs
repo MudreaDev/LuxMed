@@ -1,4 +1,9 @@
-﻿using System;
+﻿using LuxMed.BusinesLogic;
+using LuxMed.BusinessLogic.Interfaces;
+using LuxMed.Domain.Entities.User;
+using LuxMed.Domain.Entities.User.Global;
+using System;
+using LuxMed.WEB.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,13 +18,13 @@ namespace LuxMed.WEB.Controllers
         public LoginController()
         {
             var bl = new BussinesLogic();
-            _session = bl.GetSessionBl();
+            _session = bl.GetSessionBL();
         }
 
         // GET: Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(userlogin login)
+        public ActionResult Index(userLogin login)
         {
             if (ModelState.IsValid)
             {

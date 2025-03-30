@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using LuxMed.BusinesLogic;
+using LuxMed.BusinessLogic.Interfaces;
+using LuxMed.Domain.Entities.Product;
 using System.Web.Mvc;
 
 namespace LuxMed.WEB.Controllers

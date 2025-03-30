@@ -5,11 +5,11 @@ VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.WEB", "LuxMed.WEB\LuxMed.WEB.csproj", "{61D47166-0A4E-4291-B8F3-8506FF8DAD66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.WEB.BusinessLogic", "BusinesLogic\LuxMed.WEB.BusinessLogic.csproj", "{DA23D957-0A26-4511-B71B-667A4149D082}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.BusinessLogic", "BusinesLogic\LuxMed.BusinessLogic.csproj", "{DA23D957-0A26-4511-B71B-667A4149D082}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.WEB.Domain", "Domain\LuxMed.WEB.Domain.csproj", "{7B939636-4891-4816-8B30-63F487E849EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.Domain", "Domain\LuxMed.Domain.csproj", "{7B939636-4891-4816-8B30-63F487E849EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.WEB.Helpers", "LuxMed.WEB.Helpers\LuxMed.WEB.Helpers.csproj", "{C5733B6D-211F-403C-9920-CF708BA5338A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.Helpers", "LuxMed.WEB.Helpers\LuxMed.Helpers.csproj", "{C5733B6D-211F-403C-9920-CF708BA5338A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

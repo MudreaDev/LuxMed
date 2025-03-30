@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LuxMed.WEB.Domain.Entities.Res
+namespace LuxMed.Domain.Entities.Res
 {
     public class ActionStatus
     {

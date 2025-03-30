@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LuxMed.WEB.Domain.Entities.User
+namespace LuxMed.Domain.Entities.User
 {
     public class ULoginData
     {

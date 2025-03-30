@@ -1,12 +1,13 @@
-﻿using BusinesLogic.Core;
-using LuxMed.WEB.BusinessLogic.Interfaces;
+﻿using LuxMed.BusinessLogic.Core;
+using LuxMed.BusinessLogic.Interfaces;
+using LuxMed.Domain.Entities.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LuxMed.WEB.BusinessLogic
+namespace LuxMed.BusinesLogic
 {
     class ProductBL : UserApi, IProduct
     {

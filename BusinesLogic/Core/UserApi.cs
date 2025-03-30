@@ -1,30 +1,37 @@
-﻿using System;
+﻿using LuxMed.BusinessLogic.DBModel;
+using LuxMed.Domain.Entities.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LuxMed.WEB.Domain.Entities.User;
-using LuxMed.WEB.Domain.Entities.Res;
-using LuxMed.WEB.Domain.Entities.User.Global;
-using LuxMed.WEB.Domain.Entities.Product;
-namespace BusinesLogic.Core
+
+namespace eUseControl.BusinessLogic.Core
 {
-       public class UserApi
+    public class UserApi
+    {
+        public bool UserSessionStatus()
         {
-            internal ActionStatus UserLogData(ULoginData data)
-            {
-                return new ActionStatus();
-            }
-
-            internal LevelStatus CheckLevelLogic(string keySession)
-            {
-                return new LevelStatus();
-            }
-
-            internal ProductDetail GetProdUser(int id)
-            {
-                return new ProductDetail();
-            }
+            return true;
         }
-}
 
+        internal ULoginResp UserSessionData(ULoginData data)
+        {
+            UDbTable result;
+            using (var db = new UserContext())
+            {
+                result = db.Users.FirstOrDefault(u => u.Username == data.Username && u.Password ==
+                data.Password);
+            }
+            if (result == null)
+            {
+                return new ULoginResp
+                {
+                    Status = false,
+                    StatusMsg = "The username or password is incorrect"
+                };
+            }
+            return new ULoginResp { Status = true };
+        }
+    }
+}

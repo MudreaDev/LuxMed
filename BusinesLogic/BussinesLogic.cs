@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LuxMed.BusinessLogic.Interfaces;
+using LuxMed.BusinessLogic;
 
-namespace LuxMed.WEB.BusinessLogic
+namespace LuxMed.BusinesLogic
 {
     public class BussinesLogic
     {
