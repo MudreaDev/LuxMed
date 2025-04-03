@@ -17,5 +17,10 @@ namespace LuxMed.BusinessLogic
         {
             return GetProdUser(id);
         }
+
+        private ProductDetail GetProdUser(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

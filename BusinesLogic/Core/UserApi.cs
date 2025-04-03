@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eUseControl.BusinessLogic.Core
+namespace LuxMed.BusinessLogic.Core
 {
     public class UserApi
     {
@@ -32,6 +32,13 @@ namespace eUseControl.BusinessLogic.Core
                 };
             }
             return new ULoginResp { Status = true };
+        }
+
+        internal class ULoginResp
+        {
+            internal string StatusMsg;
+
+            public bool Status { get; internal set; }
         }
     }
 }

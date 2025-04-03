@@ -35,4 +35,9 @@ namespace LuxMed.Domain.Entities.User
 
         public URole Level { get; set; }
     }
+
+    public class URole
+    {
+    }
 }
+
