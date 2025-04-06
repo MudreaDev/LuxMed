@@ -1,8 +1,8 @@
 ﻿namespace LuxMed.Domain.Enums
 {
-    public enum LevelAcces
+    public enum URole
     {
-        Guest,
+        
         User,
         Admin
     }

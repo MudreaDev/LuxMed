@@ -251,6 +251,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ButtonsController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
@@ -267,6 +268,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="LevelAcces.cs" />
+    <Compile Include="Models\MainModel.cs" />
     <Compile Include="Models\userLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -291,6 +293,8 @@
     <Content Include="Views\Table\Table.cshtml" />
     <Content Include="Views\Chart\Chart.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
