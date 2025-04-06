@@ -1,6 +1,6 @@
 ﻿using LuxMed.BusinessLogic.Core;
 using LuxMed.BusinessLogic.Interfaces;
-using LuxMed.Domain.Entities.Enums;
+using LuxMed.Domain.Enums;
 using LuxMed.Domain.Entities.Res;
 using LuxMed.Domain.Entities.User;
 using System;
@@ -19,10 +19,20 @@ namespace LuxMed.BusinessLogic
         {
             return UserLogData(data);
         }
+
+        private ActionStatus UserLogData(ULoginData data)
+        {
+            throw new NotImplementedException();
+        }
+
         public LevelStatus CheckLevel(string key)
         {
             return CheckLevelLogic(key);
         }
-      
+
+        private LevelStatus CheckLevelLogic(string key)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

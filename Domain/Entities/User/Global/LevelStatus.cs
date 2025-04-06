@@ -1,4 +1,4 @@
-﻿using LuxMed.Domain.Entities.Enums;
+﻿using LuxMed.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace LuxMed.Domain.Entities.User.Global
 {
         public class LevelStatus
         {
-            public LevelAcces Level { get; set; }
+            public URole Level { get; set; }
             public DateTime SessionTime { get; set; }
         }
 }

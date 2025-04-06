@@ -1,9 +1,9 @@
-﻿using LuxMed.BusinesLogic;
+﻿using System.Web.Mvc;
 using LuxMed.BusinessLogic.Interfaces;
+using LuxMed.BusinessLogic;
 using LuxMed.Domain.Entities.Product;
-using System.Web.Mvc;
-
-namespace LuxMed.WEB.Controllers
+using LuxMed.BusinesLogic;
+namespace LuxMed.Web.Controllers
 {
     public class ProductDetailController : Controller
     {
@@ -12,8 +12,8 @@ namespace LuxMed.WEB.Controllers
         // GET: ProductDetail
         ProductDetailController()
         {
-            BussinesLogic bussinesl = new BussinesLogic();
-            _product = bussinesl.GetProductBL();
+            BussinesLogic bussines1 = new BussinesLogic();
+            _product = bussines1.GetProductBL();
         }
 
         public ActionResult Index()

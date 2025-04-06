@@ -7,13 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LuxMed.BusinesLogic
+namespace LuxMed.BusinesLogic.Core
 {
-    class ProductBL : UserApi, IProduct
+    class AdminApi
     {
-        public ProductDetail GetDetailProduct(int id)
-        {
-            return GetProdUser(id);
-        }
+   
     }
 }

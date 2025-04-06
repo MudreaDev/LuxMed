@@ -8,6 +8,8 @@ namespace LuxMed.Domain.Entities.User
 {
     public class ULoginData
     {
+        public readonly string Username;
+
         public string Credential { get; set; }
         public string Password { get; set; }
         public string LoginIp { get; set; }
