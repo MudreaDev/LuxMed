@@ -1,41 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using LuxMed.Domain.Enums;
+using LuxMed.Domain.Entities.Enums;
 
-namespace LuxMed.Domain.Entities.User
+namespace project_CAN.Domain.Entities.User
 {
-    public class UDbTable
+    [Table("users")]
+    public class UDBTable
     {
-        [Key][DatabaseGenerated(DatabaseGeneratedOption.Identity)] public int Id { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int userId { get; set; }
 
         [Required]
         [Display(Name = "Username")]
-        [StringLength(30, MinimumLength = 5, ErrorMessage = "Username cannot be longer than 30 characters.")]
-        public string Username { get; set; }
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Username cannot be longer than 50 characters.")]
+        public string firstName { get; set; }
+
+        [Required]
+        [Display(Name = "Username")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Username cannot be longer than 50 characters.")]
+        public string lastName { get; set; }
+
+        [Required]
+        [Display(Name = "Username")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Username cannot be longer than 50 characters.")]
+        public string phoneNumber { get; set; }
 
         [Required]
         [Display(Name = "Password")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "Password cannot be shorter than 8 characters.")]
-        public string Password { get; set; }
+        public string password { get; set; }
 
         [Required]
         [Display(Name = "Email Address")]
-        [StringLength(30)]
-        public string Email { get; set; }
+        [StringLength(256)]
+        public string email { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime LastLogin { get; set; }
+        [Required]
+        [Column(TypeName = "int")]
+        public URole privilegies { get; set; }
 
-        [StringLength(30)]
-        public string LastIp { get; set; }
+        public int? appointmentID { get; set; }
 
-        public URole Level { get; set; }
+        [Required]
+        public bool blocked { get; set; }
+
+        [Required]
+        public DateTime lastLogin { get; set; }
+        
     }
-
-   
 }
-
