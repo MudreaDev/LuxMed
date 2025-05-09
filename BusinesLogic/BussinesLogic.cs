@@ -1,23 +1,25 @@
-﻿using System;
+﻿using LuxMed.BusinessLogic.AppBL;
+using LuxMed.BusinessLogic;
+using LuxMed.BusinessLogic.Interfaces;
+using project_CAN.BusinessLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LuxMed.BusinessLogic.Interfaces;
-using LuxMed.BusinessLogic;
 
-namespace LuxMed.BusinesLogic
+namespace LuxMed.BusinessLogic
 {
-    public class BussinesLogic
+    public class BussinessLogic
     {
         public ISession GetSessionBL()
         {
             return new SessionBL();
         }
-
-        public IProduct GetProductBL()
+        public IAdmin GetAdminBL()
         {
-            return new ProductBL();
+            return new AdminBL();
         }
+       
     }
 }
