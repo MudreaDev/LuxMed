@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -46,6 +47,9 @@
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Azure.Core, Version=1.38.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Core.1.38.0\lib\net472\Azure.Core.dll</HintPath>
     </Reference>
@@ -64,8 +68,8 @@
     <Reference Include="Microsoft.Bcl.Cryptography, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Cryptography.8.0.0\lib\net462\Microsoft.Bcl.Cryptography.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.Base.3.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
@@ -119,8 +123,8 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.7.5.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -155,6 +159,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
@@ -190,25 +195,25 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.3.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -223,78 +228,113 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\aos.css" />
+    <Content Include="Content\css\app.css" />
+    <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\flaticon.css" />
+    <Content Include="Content\css\icomoon.css" />
+    <Content Include="Content\css\icons.css" />
+    <Content Include="Content\css\ionicons.min.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\open-iconic-bootstrap.min.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\owl.theme.default.min.css" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\img\testimonial-1.jpg" />
-    <Content Include="Content\img\testimonial-2.jpg" />
-    <Content Include="Content\img\user.jpg" />
+    <Content Include="Content\images\about.jpg" />
+    <Content Include="Content\images\bg_1.jpg" />
+    <Content Include="Content\images\bg_2.jpg" />
+    <Content Include="Content\images\bg_3.jpg" />
+    <Content Include="Content\images\dept-1.jpg" />
+    <Content Include="Content\images\doc-1.jpg" />
+    <Content Include="Content\images\doc-2.jpg" />
+    <Content Include="Content\images\doc-3.jpg" />
+    <Content Include="Content\images\doc-4.jpg" />
+    <Content Include="Content\images\doc-5.jpg" />
+    <Content Include="Content\images\doc-6.jpg" />
+    <Content Include="Content\images\doc-7.jpg" />
+    <Content Include="Content\images\doc-8.jpg" />
+    <Content Include="Content\images\doctor\1.jpg" />
+    <Content Include="Content\images\doctor\2.jpg" />
+    <Content Include="Content\images\doctor\3.jpg" />
+    <Content Include="Content\images\footer-bg.jpg" />
+    <Content Include="Content\images\image_1.jpg" />
+    <Content Include="Content\images\image_2.jpg" />
+    <Content Include="Content\images\image_3.jpg" />
+    <Content Include="Content\images\image_4.jpg" />
+    <Content Include="Content\images\image_5.jpg" />
+    <Content Include="Content\images\image_6.jpg" />
+    <Content Include="Content\images\image_7.jpg" />
+    <Content Include="Content\images\image_8.jpg" />
+    <Content Include="Content\images\loc.png" />
+    <Content Include="Content\images\person_1.jpg" />
+    <Content Include="Content\images\person_2.jpg" />
+    <Content Include="Content\images\person_3.jpg" />
+    <Content Include="Content\images\person_4.jpg" />
+    <Content Include="Content\js\aos.js" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\google-map.js" />
+    <Content Include="Content\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="Content\js\jquery.animateNumber.min.js" />
+    <Content Include="Content\js\jquery.easing.1.3.js" />
+    <Content Include="Content\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.stellar.min.js" />
+    <Content Include="Content\js\jquery.waypoints.min.js" />
     <Content Include="Content\js\main.js" />
-    <Content Include="Content\lib\chart\chart.min.js" />
-    <Content Include="Content\lib\easing\easing.min.js" />
-    <Content Include="Content\lib\owlcarousel\assets\ajax-loader.gif" />
-    <Content Include="Content\lib\owlcarousel\assets\owl.carousel.css" />
-    <Content Include="Content\lib\owlcarousel\assets\owl.carousel.min.css" />
-    <Content Include="Content\lib\owlcarousel\assets\owl.theme.default.css" />
-    <Content Include="Content\lib\owlcarousel\assets\owl.theme.default.min.css" />
-    <Content Include="Content\lib\owlcarousel\assets\owl.theme.green.css" />
-    <Content Include="Content\lib\owlcarousel\assets\owl.theme.green.min.css" />
-    <Content Include="Content\lib\owlcarousel\assets\owl.video.play.png" />
-    <Content Include="Content\lib\owlcarousel\owl.carousel.min.js" />
-    <Content Include="Content\lib\tempusdominus\css\tempusdominus-bootstrap-4.min.css" />
-    <Content Include="Content\lib\tempusdominus\js\moment-timezone.min.js" />
-    <Content Include="Content\lib\tempusdominus\js\moment.min.js" />
-    <Content Include="Content\lib\tempusdominus\js\tempusdominus-bootstrap-4.js" />
-    <Content Include="Content\lib\waypoints\waypoints.min.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\scrollax.min.js" />
+    <Content Include="Content\js\vendor.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\AdminModeAttribute.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\ButtonsController.cs" />
-    <Compile Include="Controllers\ChartController.cs" />
-    <Compile Include="Controllers\FormsController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\OtherElementsController.cs" />
-    <Compile Include="Controllers\ProductDetailController.cs" />
-    <Compile Include="Controllers\SignInController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
-    <Compile Include="Controllers\TableController.cs" />
-    <Compile Include="Controllers\TypographyController.cs" />
-    <Compile Include="Controllers\WidgetsController.cs" />
+    <Compile Include="Extension\HttpContextExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LevelAcces.cs" />
-    <Compile Include="Models\MainModel.cs" />
-    <Compile Include="Models\userLogin.cs" />
+    <Compile Include="Models\AddAppointment.cs" />
+    <Compile Include="Models\AddDoctor.cs" />
+    <Compile Include="Models\AddUser.cs" />
+    <Compile Include="Models\EditAppointment.cs" />
+    <Compile Include="Models\EditDoctor.cs" />
+    <Compile Include="Models\EditUser.cs" />
+    <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\UserRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="Content\lib\owlcarousel\LICENSE" />
-    <Content Include="Content\lib\waypoints\links.php" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
-    <Content Include="Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Shared\_Navbar.cshtml" />
-    <Content Include="Views\SignIn\Index.cshtml" />
-    <Content Include="Views\Widgets\Widgets.cshtml" />
-    <Content Include="Views\Shared\_SignInSIgnUp.cshtml" />
+    <Content Include="Views\SignIn\SignIn.cshtml" />
     <Content Include="Views\SignUp\SignUp.cshtml" />
-    <Content Include="Views\Forms\Forms.cshtml" />
-    <Content Include="Views\Buttons\Buttons.cshtml" />
-    <Content Include="Views\Typography\Typography.cshtml" />
-    <Content Include="Views\OtherElements\OtherElements.cshtml" />
-    <Content Include="Views\Table\Table.cshtml" />
-    <Content Include="Views\Chart\Chart.cshtml" />
     <None Include="packages.config" />
-    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AddUser.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutSignInUp.cshtml" />
+    <Content Include="Views\Shared\_NavigationBar.cshtml" />
+    <Content Include="Views\Admin\AddDoctor.cshtml" />
+    <Content Include="Views\Home\Appointment.cshtml" />
+    <Content Include="Views\Home\UserAppointments.cshtml" />
+    <Content Include="Views\Admin\EditAppointment.cshtml" />
+    <Content Include="Views\Admin\EditDoctor.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\Admin\ShowAppointment.cshtml" />
+    <Content Include="Views\Doctor\Doctoredit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -304,17 +344,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Login\" />
-    <Folder Include="Views\ProductDetail\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinesLogic\LuxMed.BusinessLogic.csproj">
-      <Project>{DA23D957-0A26-4511-B71B-667A4149D082}</Project>
+      <Project>{da23d957-0a26-4511-b71b-667a4149d082}</Project>
       <Name>LuxMed.BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\LuxMed.Domain.csproj">
-      <Project>{7B939636-4891-4816-8B30-63F487E849EB}</Project>
+      <Project>{7b939636-4891-4816-8b30-63f487e849eb}</Project>
       <Name>LuxMed.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\LuxMed.Helpers.csproj">
+      <Project>{fe4802c1-8337-4e6c-be7c-d5c93ba1dbd9}</Project>
+      <Name>LuxMed.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -346,12 +389,11 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

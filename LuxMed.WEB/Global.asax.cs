@@ -1,27 +1,38 @@
-﻿using LuxMed.WEB.App_Start;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using LuxMed.Domain.Entities.Admin;
+using LuxMed.Domain.Entities.User;
+using LuxMed.Models;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
+using LuxMed.Web;
+
 
 
 namespace LuxMed.WEB
 {
-    public class Global : HttpApplication
+    public class Global: HttpApplication
     {
-        void Application_Start(object sender, EventArgs e)
+        protected void Application_Start()
         {
-            // Code that runs on application startup
-           AreaRegistration.RegisterAllAreas();
-           RouteConfig.RegisterRoutes(RouteTable.Routes);
+            AreaRegistration.RegisterAllAreas();
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            InitializeAutoMapper();
+        }
 
-            BundleConfig.RegisterBundle(BundleTable.Bundles);
+        protected static void InitializeAutoMapper()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<UserLogin, ULoginData>();
+                cfg.CreateMap<UserRegister, URegisterData>();
+                cfg.CreateMap<UserTable, UserMinimal>();
 
+                cfg.CreateMap<AddUser, AddUserData>();
+               
+            });
         }
     }
 }
