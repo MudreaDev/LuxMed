@@ -1,263 +1,128 @@
-﻿@{
-    ViewBag.Title = "Dashboard";
+﻿
+@{
+    ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var doctors = ViewBag.doctors;
 }
 
-<!-- Sale & Revenue Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-sm-6 col-xl-3">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-line fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Today Sale</p>
-                    <h6 class="mb-0">$1234</h6>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Total Sale</p>
-                    <h6 class="mb-0">$1234</h6>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-area fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Today Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Total Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+<section class="hero-wrap js-fullheight" style="background-image: url('../../Content/images/bg_3.jpg');" data-section="home" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+            <div class="col-md-6 pt-5 ftco-animate">
+                <div class="mt-5">
+                    <span class="subheading">Welcome to LuxMed</span>
+                    <h1 class="mb-4">We are here <br>for your Care</h1>
+                    <p class="mb-4">At LuxMed, we prioritize your health and well-being above all else. Nestled in a serene environment, we provide top-notch medical care with a personal touch. Our team of experienced professionals is dedicated to ensuring you receive the best care possible, whether you’re visiting for a routine check-up or a specialized treatment.</p>
+                    <p><a href="/Home/Appointment" class="btn btn-primary py-3 px-4">Make an appointment</a></p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Sale & Revenue End -->
-<!-- Sales Chart Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-sm-12 col-xl-6">
-            <div class="bg-light text-center rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Worldwide Sales</h6>
-                    <a href="">Show All</a>
-                </div>
-                <canvas id="worldwide-sales"></canvas>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb" id="department-section">
+    <div class="container-fluid px-0">
+        <div class="row no-gutters">
+            <div class="col-md-4 d-flex">
+                <div class="img img-dept align-self-stretch" style="background-image: url(../../Content/images/dept-1.jpg);"></div>
             </div>
-        </div>
-        <div class="col-sm-12 col-xl-6">
-            <div class="bg-light text-center rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Salse & Revenue</h6>
-                    <a href="">Show All</a>
+            <div class="col-md-8">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <h3>Neurology</h3>
+                                <p>Comprehensive care for neurological disorders, including advanced diagnostic.</p>
+                            </div>
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <h3>Surgical</h3>
+                                <p>Broad range of surgical services,including invasive techniques for better recovery.</p>
+                            </div>
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <h3>Dental</h3>
+                                <p>Complete dental care and treatments, including preventive, restorative, and cosmetic dentistry.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <h3>Opthalmology</h3>
+                                <p>Expert care for eye conditions and vision health, ensuring the best possible vision outcomes</p>
+                            </div>
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <h3>Cardiology</h3>
+                                <p>Advanced care for heart and cardiovascular diseases, from diagnosis to innovative treatments.</p>
+                            </div>
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <h3>Traumatology</h3>
+                                <p>Expert care for traumatic injuries, ensuring optimal recovery and rehabilitation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <h3>Nuclear Magnetic</h3>
+                                <p>Advanced nuclear imaging for precise diagnosis and effective treatment monitoring</p>
+                            </div>
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <h3>X-ray</h3>
+                                <p>High-quality X-ray imaging for accurate and timely diagnosis of various conditions..</p>
+                            </div>
+                        </div>
+                        <div class="department-wrap p-4 ftco-animate">
+                            <div class="text p-2 text-center">
+                                <h3>Cardiology</h3>
+                                <p>Advanced care for heart and cardiovascular diseases, from diagnosis to innovative treatments.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <canvas id="salse-revenue"></canvas>
-            </div>
+            </div>F
         </div>
     </div>
-</div>
-<!-- Sales Chart End -->
-<!-- Recent Sales Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="bg-light text-center rounded p-4">
-        <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0">Recent Salse</h6>
-            <a href="">Show All</a>
+</section>
+
+<section class="ftco-section" id="doctor-section">
+    <div class="container-fluid px-5">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <h2 class="mb-4">Our Qualified Doctors</h2>
+                <p>Our team of highly skilled and experienced doctors is dedicated to providing the best medical care. Each doctor specializes in different areas of medicine to ensure comprehensive care for our patients</p>
+            </div>
         </div>
-        <div class="table-responsive">
-            <table class="table text-start align-middle table-bordered table-hover mb-0">
-                <thead>
-                    <tr class="text-dark">
-                        <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Invoice</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row">
+            @foreach (var doctor in doctors)
+            {
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="staff">
+                        <div class="img-wrap d-flex align-items-stretch">
+                            <div><img src="@Url.Content("~/Content/images/doctor/" + doctor.Image)" class="img align-self-stretch"></div>
+                        </div>
+                        <div class="text pt-3 text-center">
+                            <h3 class="mb-2">@doctor.Username</h3>
+                            <span class="position mb-2">@doctor.Type</span>
+                            <div class="faded">
+                                <p>@doctor.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     </div>
-</div>
-<!-- Recent Sales End -->
-<!-- Widgets Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-sm-12 col-md-6 col-xl-4">
-            <div class="h-100 bg-light rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <h6 class="mb-0">Messages</h6>
-                    <a href="">Show All</a>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-3">
-                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-0">Jhon Doe</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                        <span>Short message goes here...</span>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-3">
-                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-0">Jhon Doe</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                        <span>Short message goes here...</span>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-3">
-                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-0">Jhon Doe</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                        <span>Short message goes here...</span>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center pt-3">
-                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-0">Jhon Doe</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                        <span>Short message goes here...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-xl-4">
-            <div class="h-100 bg-light rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Calender</h6>
-                    <a href="">Show All</a>
-                </div>
-                <div id="calender"></div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-xl-4">
-            <div class="h-100 bg-light rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">To Do List</h6>
-                    <a href="">Show All</a>
-                </div>
-                <div class="d-flex mb-2">
-                    <input class="form-control bg-transparent" type="text" placeholder="Enter task">
-                    <button type="button" class="btn btn-primary ms-2">Add</button>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-2">
-                    <input class="form-check-input m-0" type="checkbox">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span>Short task goes here...</span>
-                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-2">
-                    <input class="form-check-input m-0" type="checkbox">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span>Short task goes here...</span>
-                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-2">
-                    <input class="form-check-input m-0" type="checkbox" checked>
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span><del>Short task goes here...</del></span>
-                            <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-2">
-                    <input class="form-check-input m-0" type="checkbox">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span>Short task goes here...</span>
-                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center pt-2">
-                    <input class="form-check-input m-0" type="checkbox">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span>Short task goes here...</span>
-                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Widgets End -->
+</section>

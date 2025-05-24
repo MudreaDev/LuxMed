@@ -1,59 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
-namespace LuxMed.WEB.App_Start
+namespace LuxMed.Web
 {
-	public static class BundleConfig
-	{
-		public static void RegisterBundle(BundleCollection bundles)
-		{
-            //Main css
-            //href = "css/style.css" rel = "stylesheet
-            // Main CSS
-            bundles.Add(new StyleBundle("~/bundles/main/css")
-                .Include("~/Content/css/style.css", new CssRewriteUrlTransform()));
+    public static class BundleConfig
+    {
+        public static void RegisterBundles(BundleCollection bundles)
+        {
 
-            // Bootstrap CSS
-            bundles.Add(new StyleBundle("~/bundles/bootstrap/css")
-                .Include("~/Content/css/bootstrap.min.css", new CssRewriteUrlTransform()));
 
-            // OwlCarousel CSS
-            bundles.Add(new StyleBundle("~/bundles/owlcarousel/css")
-                .Include("~/Content/lib/owlcarousel/assets/owl.carousel.min.css", new CssRewriteUrlTransform()));
+            // Bootstrap style
+            bundles.Add(new StyleBundle("~/bundles/bootstrap/css").Include(
+                      "~/Content/css/animate.css",
+                      "~/Content/css/aos.css",
+                      "~/Content/css/app.css",
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/flaticon.css",
+                      "~/Content/css/icomoon.css",
+                      "~/Content/css/icons.css",
+                      "~/Content/css/ionicons.min.css",
+                      "~/Content/css/magnific-popup.css",
+                      "~/Content/css/open-iconic-bootstrap.min.css",
+                      "~/Content/css/owl.carousel.min.css",
+                      "~/Content/css/owl.theme.default.min.css",
+                      "~/Content/css/style.css"
+                      ));
 
-            // Main JS
-            bundles.Add(new ScriptBundle("~/bundles/main/js")
-                .Include("~/Content/js/main.js"));
+            // Bootstrap js
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
+                       "~/Content/js/bootstrap.min.js"));
 
-            // Chart JS
-            bundles.Add(new ScriptBundle("~/bundles/chart/js")
-                .Include("~/lib/chart/chart.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                      "~/Content/js/jquery.min.js",
+                      "~/Content/js/jquery-migrate-3.0.1.min.js",
+                      "~/Content/js/jquery.easing.1.3.js",
+                      "~/Content/js/jquery.waypoints.min.js",
+                      "~/Content/js/jquery.stellar.min.js",
+                      "~/Content/js/jquery.magnific-popup.min.js",
+                      "~/Content/js/jquery.animateNumber.min.js"
+                      ));
 
-            // Easing JS
-            bundles.Add(new ScriptBundle("~/bundles/easing/js")
-                .Include("~/lib/easing/easing.min.js"));
-
-            // Waypoints JS
-            bundles.Add(new ScriptBundle("~/bundles/waypoints/js")
-                .Include("~/lib/waypoints/waypoints.min.js"));
-
-            // OwlCarousel JS
-            bundles.Add(new ScriptBundle("~/bundles/owlcarousel/js")
-                .Include("~/lib/owlcarousel/owl.carousel.min.js"));
-
-            // Tempus Dominus JS (Date/Time Picker)
-            bundles.Add(new ScriptBundle("~/bundles/tempus/js")
-                .Include(
-                    "~/lib/tempusdominus/js/moment.min.js",
-                    "~/lib/tempusdominus/js/moment-timezone.min.js",
-                    "~/lib/tempusdominus/js/tempusdominus-bootstrap-4.js"
-                ));
-
-            // Activează minificarea și concatenarea în Release Mode
-            BundleTable.EnableOptimizations = true;
+            bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
+                      "~/Content/js/popper.min.js",
+                      "~/Content/js/owl.carousel.min.js",
+                      "~/Content/js/aos.js",
+                      "~/Content/js/scrollax.min.js",
+                      "~/Content/js/google-map.js",
+                      "~/Content/js/main.js"
+                      ));
 
 
         }

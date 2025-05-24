@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LuxMed.WEB.Helpers")]
+[assembly: AssemblyTitle("Helpers")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LuxMed.WEB.Helpers")]
+[assembly: AssemblyProduct("Helpers")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c5733b6d-211f-403c-9920-cf708ba5338a")]
+[assembly: Guid("fe4802c1-8337-4e6c-be7c-d5c93ba1dbd9")]
 
 // Version information for an assembly consists of the following four values:
 //

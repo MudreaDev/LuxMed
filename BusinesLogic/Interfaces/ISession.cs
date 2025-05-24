@@ -17,6 +17,9 @@ namespace LuxMed.BusinessLogic.Interfaces
         BoolResp AddAppointment(AddAppointmentData data);
         List<UserTable> GetUserList();
         List<DoctorTable> GetDoctorList();
+        UserTable GetUserById(int id);
+        DoctorTable GetDoctorById(int id);
+        AppointmentTable GetAppointmentById(int id);
         List<AppointmentTable> GetAppointmentList();
         HttpCookie GenCookie(string loginCredential);
         UserMinimal GetUserByCookie(string apiCookieValue);

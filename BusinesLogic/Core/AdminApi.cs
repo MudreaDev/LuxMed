@@ -165,5 +165,20 @@ namespace LuxMed.BusinessLogic.Core
                }
                return new BoolResp { Status = true };
           }
+        public List<UserTable> GetAllUsers()
+        {
+            using (var db = new TableContext())
+            {
+                return db.Users.OrderByDescending(u => u.Level).ToList();
+            }
+        }
+
+        public UserTable GetUserById(int id)
+        {
+            using (var db = new TableContext())
+            {
+                return db.Users.FirstOrDefault(u => u.Id == id);
+            }
+        }
      }
 }
