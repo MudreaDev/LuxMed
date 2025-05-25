@@ -148,22 +148,43 @@ namespace LuxMed.BusinessLogic.Core
                     return new BoolResp { Status = false };
           }
 
-          internal BoolResp EditAppointmentAction(EditAppointmentData data)
-          {
-               using (var db = new TableContext())
-               {
-                    AppointmentTable existingAppointment = db.Appointments.FirstOrDefault(u => u.Doctor == data.Doctor && u.Phone == data.Phone);
+        internal BoolResp EditAppointmentAction(EditAppointmentData data)
+        {
+            using (var db = new TableContext())
+            {
+                AppointmentTable existingAppointment = db.Appointments.FirstOrDefault(u => u.Doctor == data.Doctor && u.Phone == data.Phone);
 
-                    existingAppointment.FirstName = data.FirstName;
-                    existingAppointment.LastName = data.LastName;
-                    existingAppointment.Doctor = data.Doctor;
-                    existingAppointment.Phone = data.Phone;
-                    existingAppointment.Date = data.Date;
-                    existingAppointment.Time = data.Time;
-                    existingAppointment.Message = data.Message;
-                    db.SaveChanges();
-               }
-               return new BoolResp { Status = true };
-          }
+                if (existingAppointment == null)
+                {
+                    return new BoolResp { Status = false, StatusMsg = "Programarea nu a fost găsită." };
+                }
+
+                existingAppointment.FirstName = data.FirstName;
+                existingAppointment.LastName = data.LastName;
+                existingAppointment.Doctor = data.Doctor;
+                existingAppointment.Phone = data.Phone;
+                existingAppointment.Date = data.Date;
+                existingAppointment.Time = data.Time;
+                existingAppointment.Message = data.Message;
+                db.SaveChanges();
+            }
+            return new BoolResp { Status = true };
+        }
+
+        public List<UserTable> GetAllUsers()
+        {
+            using (var db = new TableContext())
+            {
+                return db.Users.OrderByDescending(u => u.Level).ToList();
+            }
+        }
+
+        public UserTable GetUserById(int id)
+        {
+            using (var db = new TableContext())
+            {
+                return db.Users.FirstOrDefault(u => u.Id == id);
+            }
+        }
      }
 }

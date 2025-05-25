@@ -45,37 +45,31 @@ namespace LuxMed.Controllers
         public ActionResult AddUser()
         {
             GetStatus();
-            using (var db = new TableContext())
-            {
-                List<UserTable> usersList = db.Users.OrderByDescending(u => u.Level).ToList();
-                ViewBag.usersList = usersList;
-            }
+            var usersList = _session.GetUserList();
+            ViewBag.usersList = usersList;
             return View();
         }
+
 
         public ActionResult AddDoctor()
         {
             GetStatus();
-            List<string> types = new List<string> { "Neurology", "Opthalmology", "Nuclear Magnetic", "Surgical", "Cardiology", "Cardiology", "X-ray", "Dental", "Traumatology" };
+            List<string> types = new List<string> { "Neurology", "Opthalmology", "Nuclear Magnetic", "Surgical", "Cardiology", "X-ray", "Dental", "Traumatology" };
             ViewBag.types = types;
-            using (var db = new TableContext())
-            {
-                List<DoctorTable> doctorList = db.Doctors.ToList();
-                ViewBag.doctorsList = doctorList;
-            }
+            var doctorList = _session.GetDoctorList();
+            ViewBag.doctorsList = doctorList;
             return View();
         }
+
 
         public ActionResult ShowAppointment()
         {
             GetStatus();
-            using (var db = new TableContext())
-            {
-                List<AppointmentTable> AppointmentList = db.Appointments.ToList();
-                ViewBag.AppointmentsList = AppointmentList;
-            }
+            var appointmentList = _session.GetAppointmentList();
+            ViewBag.AppointmentsList = appointmentList;
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -107,11 +101,9 @@ namespace LuxMed.Controllers
             {
                 if (imageFile != null && imageFile.ContentType == "image/png")
                 {
-                    using (var db = new TableContext())
-                    {
-                        var path = Path.Combine(Server.MapPath($"~/Content/images/doctor/{doctor.Username}.png"));
-                        imageFile.SaveAs(path);
-                    }
+                    var path = Path.Combine(Server.MapPath($"~/Content/images/doctor/{doctor.Username}.png"));
+                    imageFile.SaveAs(path);
+                    doctor.Image = doctor.Username + ".png"; // setezi imaginea în model
                 }
 
                 var data = Mapper.Map<AddDoctorData>(doctor);
@@ -139,15 +131,17 @@ namespace LuxMed.Controllers
 
         public ActionResult DeleteDoctor(int id)
         {
-            using (var db = new TableContext())
+            var doctor = _session.GetDoctorById(id);
+            if (doctor != null && !string.IsNullOrEmpty(doctor.Image))
             {
-                DoctorTable doctor = db.Doctors.FirstOrDefault(u => u.Id == id);
                 var path = Path.Combine(Server.MapPath($"~/Content/images/doctor/{doctor.Image}"));
-                System.IO.File.Delete(path);
+                if (System.IO.File.Exists(path))
+                    System.IO.File.Delete(path);
             }
             _admin.DeleteDoctor(id);
             return RedirectToAction("AddDoctor", "Admin");
         }
+
 
         public ActionResult DeleteAppointment(int id)
         {
@@ -158,45 +152,35 @@ namespace LuxMed.Controllers
         public ActionResult EditUser(int id)
         {
             GetStatus();
-            using (var db = new TableContext())
-            {
-                var user = db.Users.FirstOrDefault(u => u.Id == id);
-                var data = Mapper.Map<EditUser>(user);
-
-                ViewBag.userToEdit = data;
-                return View(data);
-            }
+            var user = _session.GetUserById(id);
+            var data = Mapper.Map<EditUser>(user);
+            ViewBag.userToEdit = data;
+            return View(data);
         }
 
         public ActionResult EditDoctor(int id)
         {
             GetStatus();
-            List<string> types = new List<string> { "Neurology", "Opthalmology", "Nuclear Magnetic", "Surgical", "Cardiology", "Cardiology", "X-ray", "Dental", "Traumatology" };
+            List<string> types = new List<string> { "Neurology", "Opthalmology", "Nuclear Magnetic", "Surgical", "Cardiology", "X-ray", "Dental", "Traumatology" };
             ViewBag.types = types;
-            using (var db = new TableContext())
-            {
-                var doctor = db.Doctors.FirstOrDefault(u => u.Id == id);
-                var data = Mapper.Map<EditDoctor>(doctor);
-
-                ViewBag.doctorToEdit = data;
-                return View(data);
-            }
+            var doctor = _session.GetDoctorById(id);
+            var data = Mapper.Map<EditDoctor>(doctor);
+            ViewBag.doctorToEdit = data;
+            return View(data);
         }
+
 
         public ActionResult EditAppointment(int id)
         {
             GetStatus();
             List<string> doctors = _session.GetDoctorList().Select(d => d.Username).ToList();
             ViewBag.doctors = doctors;
-            using (var db = new TableContext())
-            {
-                var appointment = db.Appointments.FirstOrDefault(u => u.Id == id);
-                var data = Mapper.Map<EditAppointment>(appointment);
-
-                ViewBag.appointmentToEdit = data;
-                return View(data);
-            }
+            var appointment = _session.GetAppointmentById(id);
+            var data = Mapper.Map<EditAppointment>(appointment);
+            ViewBag.appointmentToEdit = data;
+            return View(data);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -219,7 +203,6 @@ namespace LuxMed.Controllers
             }
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditDoctor(EditDoctor doctor, HttpPostedFileBase imageFile)
@@ -228,15 +211,15 @@ namespace LuxMed.Controllers
             {
                 if (imageFile != null && imageFile.ContentType == "image/png")
                 {
-                    using (var db = new TableContext())
+                    var existingDoctor = _session.GetDoctorById(doctor.Id); 
+                    if (existingDoctor != null)
                     {
-                        DoctorTable existingDoctor = db.Doctors.FirstOrDefault(u => u.Email == doctor.Email);
                         var oldPath = Path.Combine(Server.MapPath($"~/Content/images/doctor/{existingDoctor.Username}.png"));
                         var newPath = Path.Combine(Server.MapPath($"~/Content/images/doctor/{doctor.Username}.png"));
-                        existingDoctor.Image = doctor.Username + ".png";
-                        db.SaveChanges();
-                        System.IO.File.Delete(oldPath);
+                        if (System.IO.File.Exists(oldPath))
+                            System.IO.File.Delete(oldPath);
                         imageFile.SaveAs(newPath);
+                        doctor.Image = doctor.Username + ".png"; 
                     }
                 }
 
@@ -255,6 +238,7 @@ namespace LuxMed.Controllers
             }
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

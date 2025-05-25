@@ -8,6 +8,8 @@ namespace LuxMed.Models
 {
     public class EditDoctor
     {
+        public int Id { get; set; } // Add this property
+
         public string Username { get; set; }
 
         public string Email { get; set; }
