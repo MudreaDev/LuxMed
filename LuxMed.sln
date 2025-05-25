@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.BusinessLogic", "Bus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.Domain", "Domain\LuxMed.Domain.csproj", "{7B939636-4891-4816-8B30-63F487E849EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.Helpers", "LuxMed.WEB.Helpers\LuxMed.Helpers.csproj", "{C5733B6D-211F-403C-9920-CF708BA5338A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxMed.Helpers", "Helpers\LuxMed.Helpers.csproj", "{FE4802C1-8337-4E6C-BE7C-D5C93BA1DBD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{7B939636-4891-4816-8B30-63F487E849EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B939636-4891-4816-8B30-63F487E849EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B939636-4891-4816-8B30-63F487E849EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5733B6D-211F-403C-9920-CF708BA5338A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5733B6D-211F-403C-9920-CF708BA5338A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5733B6D-211F-403C-9920-CF708BA5338A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5733B6D-211F-403C-9920-CF708BA5338A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4802C1-8337-4E6C-BE7C-D5C93BA1DBD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4802C1-8337-4E6C-BE7C-D5C93BA1DBD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4802C1-8337-4E6C-BE7C-D5C93BA1DBD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4802C1-8337-4E6C-BE7C-D5C93BA1DBD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
